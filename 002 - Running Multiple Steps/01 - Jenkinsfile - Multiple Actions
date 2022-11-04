@@ -1,8 +1,8 @@
 def writeToFile (text = '') {
 	touch "$text"
-	'date > $text'
-	cat $text
-	rm $text
+	"date > $text"
+	cat "$text"
+	rm "$text"
 }
 
 pipeline {
