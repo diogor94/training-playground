@@ -1,9 +1,27 @@
+def userInput (text = '') {
+	
+}
+
 pipeline {
-    agent { 
+	parameters {
+		choice(name: 'CHOICE', choices: ['build','test'])
+	}
+
+	agent { 
 		docker { 
 			image 'alpine:latest' 
 		}
 	}
-    stages {
-    }
+	stages {
+		stage ('build') {
+			steps {
+				echo 'build'
+			}
+		}
+		stage ('test') {
+			steps {
+				echo 'test'
+			}
+		}
+	}
 }
