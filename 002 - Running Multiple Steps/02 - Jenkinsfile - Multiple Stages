@@ -14,10 +14,14 @@ pipeline {
 	}
     stages {
     	stage('build') {
-		writeToFile('file.txt')
+		steps {
+			writeToFile('file.txt')
+		}
 	}
 	stage('test') {
-		checkYear('file.txt', '2022')
+		steps {
+			checkYear('file.txt', '2022')
+		}
 	}
     }
 }
