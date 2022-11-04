@@ -20,7 +20,7 @@ pipeline {
 	}
 	stage('test') {
 		steps {
-			checkYear('file.txt', '2022')
+			checkYear('file.txt', '2020')
 		}
 	}
     }
