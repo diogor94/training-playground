@@ -14,11 +14,17 @@ pipeline {
 	}
 	stages {
 		stage ('build') {
+			when {
+			     expression { CHOICE == 'build' }
+			}
 			steps {
 				echo 'build'
 			}
 		}
 		stage ('test') {
+			when {
+			     expression { CHOICE == 'test' }
+			}
 			steps {
 				echo 'test'
 			}
