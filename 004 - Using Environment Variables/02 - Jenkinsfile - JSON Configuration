@@ -6,8 +6,10 @@ pipeline {
 	}
 	environment {
 		BUILD_CONFIGS = '''
-			name: "HelloWorld",
-			command: "echo 'Hello world!'"
+			[{
+				name: "HelloWorld",
+				command: "echo 'Hello world!'"
+			}]
 		'''
 	}
     stages {
