@@ -6,17 +6,25 @@ pipeline {
 	}
 	environment {
 		BUILD_CONFIGS = '''
-			build: ['stage1', 'stage2', 'stage3']
-			command: "echo 'Hello world!'"
+			[{
+				name: "stage1",
+				command: "echo 'Hello stage1!'"
+			},{
+				name: "stage2"
+				command: "echo 'Hello stage2!'"
+			}]
 		'''
 	}
     stages {
         stage('build') {
             steps {
-                scripts {
+                script {
                 	def buildConfigs = readJSON text: "$BUILD_CONFIGS"
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
+						stage ("${buildConfig.name}) {
+							sh "$buildConfig.command" 
+						}
 					}
                 }
             }
