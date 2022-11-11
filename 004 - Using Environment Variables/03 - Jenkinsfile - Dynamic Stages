@@ -4,11 +4,17 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	environment {
+		BUILD_CONFIGS = '''
+			build: ['stage1', 'stage2', 'stage3']
+			command: "echo 'Hello world!'"
+		'''
+	}
     stages {
         stage('build') {
             steps {
                 scripts {
-                	def buildConfigs = []
+                	def buildConfigs = readJson text: "$BUILD_CONFIGS"
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
