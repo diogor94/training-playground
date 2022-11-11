@@ -4,7 +4,7 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
-	enviroment {
+	environment {
 		BUILD_CONFIGS = '''
 			name: "testValue",
 			command: "echo 'Hello world!'"
