@@ -7,8 +7,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                def result = sh "exit \$((RANDOM % 2))"
-				sh 'echo "${result}'
+                sh "exit \$((RANDOM % 2))"
             }
         }
     }
