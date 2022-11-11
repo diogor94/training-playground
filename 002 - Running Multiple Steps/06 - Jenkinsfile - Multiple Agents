@@ -2,7 +2,7 @@ pipeline {
     agent none 
 	 stages {
 		stage ("Stage 1") {
-			agent { docker 'mvn:latest' } 
+			agent { docker 'maven:latest' } 
 			steps {
 				sh "mvn --version"
 			}
