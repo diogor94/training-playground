@@ -10,7 +10,7 @@ pipeline {
 				name: "stage1",
 				command: "echo 'Hello stage1!'"
 			},{
-				name: "stage2"
+				name: "stage2",
 				command: "echo 'Hello stage2!'"
 			}]
 		'''
