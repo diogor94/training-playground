@@ -3,9 +3,9 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
-		environment {
-			NOTIFICATION_EMAIL = "myemail@mail.com"
-		}
+	}
+	environment {
+		NOTIFICATION_EMAIL = "myemail@mail.com"
 	}
     stages {
         stage('build') {
