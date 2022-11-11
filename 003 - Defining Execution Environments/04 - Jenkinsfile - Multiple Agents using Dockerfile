@@ -4,26 +4,23 @@ pipeline {
 		stage ("Stage 1") {
 			agent { 
 				dockerfile {
-					filename '02 - Dockerfile - Dockerfile Agent'
+					filename '04 - Dockerfile 1 - Maven image'
 					dir '003 - Defining Execution Environments'
-					additionalBuildArgs '--build-arg ENV_VARIABLE="Value for build"'
-					args '-e ENV_VARIABLE="Value for execution"'
 				}
 			} 
 			steps {
-                sh 'if [ "$ENV_VARIABLE" != "Value for execution" ]; then exit 1; fi'
+                sh "mvn --version"
             }
 		}
 		stage ("Stage 2") {
 			agent { 
 				dockerfile {
-					filename '03 - Dockerfile - Install Software Dockerfile'
+					filename '04 - Dockerfile 1 - Node image'
 					dir '003 - Defining Execution Environments'
 				}
 			}
 			steps {
-				echo "Don't install curl here!"
-				sh "curl www.google.com"
+				sh "node --version"
 			}
 		}
 	}
