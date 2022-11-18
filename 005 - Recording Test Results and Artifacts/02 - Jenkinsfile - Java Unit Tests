@@ -15,7 +15,7 @@ pipeline {
 		}
         stage('tests') {
             steps {
-				configFileProvider([configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS']) {
+				configFileProvider([configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]) {
 					sh "mvn -s $MAVEN_SETTINGS -f $POM_PATH clean package"
 				}
 				sh "mvn test"
