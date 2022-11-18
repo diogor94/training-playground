@@ -29,7 +29,7 @@ pipeline {
 					-f '$POM_PATH' \
 					org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar \
 					-Dsonar.host.url='test1811' \
-					-Dsonar.projectKey='test1811' \
+					-Dsonar.projectKey='test1811'" \
 				}
 			}
 		}
