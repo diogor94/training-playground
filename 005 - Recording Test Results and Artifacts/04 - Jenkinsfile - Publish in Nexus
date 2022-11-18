@@ -47,7 +47,7 @@ pipeline {
 				-DgeneratePom.description='Generated from training-playground'                                  \
 				-DgroupId='training-playground'                                                                 \
 				-DartifactId='training-playground-java-app'                                                     \
-				-Dversion=1.0.0"
+				-Dversion=1.0.2"
 			}
 		}
 	}
