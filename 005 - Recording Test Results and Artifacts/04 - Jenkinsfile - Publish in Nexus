@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-                POM_PATH = "005 - Recording Test Results and Artifacts/02 - Java Unit Tests/pom.xml"
+                POM_PATH = "005 - Recording Test Results and Artifacts/04 - Publish in Nexus/pom.xml"
     }
       stages {       
           stage('build'){
@@ -41,7 +41,7 @@ pipeline {
 				-s settings-copy.xml                                                                            \
 				-Durl='http://nexus:8081/repository/maven-releases/'                                            \
 				-DrepositoryId='maven-releases'                                                                 \
-				-Dfile='005 - Recording Test Results and Artifacts/Java Application/target/java-app-1.0.0.jar'  \
+				-Dfile='005 - Recording Test Results and Artifacts/04 - Publish in Nexus/target/java-app-1.0.0.jar'  \
 				-Dpackaging=jar                                                                                 \
 				-DgeneratePom=true                                                                              \
 				-DgeneratePom.description='Generated from training-playground'                                  \
