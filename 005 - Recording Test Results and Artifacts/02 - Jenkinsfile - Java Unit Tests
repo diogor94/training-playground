@@ -1,13 +1,24 @@
 pipeline {
     agent { 
 		docker { 
-			image 'alpine:latest' 
+			image 'maven:latest' 
 		}
 	}
     stages {
+		environment {
+			POM_PATH = '005 - Recording Test Results and Artifacts/02 - Java Unit Tests/pom.xml'
+		}
+		stage('build') {	
+			steps {
+				sh "mvn install -f $POM_PATH -Dmaven-test.skip=true"
+			}
+		}
         stage('tests') {
             steps {
-                sh ""
+				configFileProvider([configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS']) {
+					sh "mvn -s $MAVEN_SETTINGS -f $POM_PATH clean package"
+				}
+				sh "mvn test"
             }
         }
     }
