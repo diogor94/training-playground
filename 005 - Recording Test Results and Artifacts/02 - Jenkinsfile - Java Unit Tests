@@ -10,13 +10,13 @@ pipeline {
     stages {
 		stage('build') {	
 			steps {
-				sh "mvn install -f $POM_PATH -Dmaven-test.skip=true"
+				sh "mvn install -f '$POM_PATH' -Dmaven-test.skip=true"
 			}
 		}
         stage('tests') {
             steps {
 				configFileProvider([configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]) {
-					sh "mvn -s $MAVEN_SETTINGS -f $POM_PATH clean package"
+					sh "mvn -s $MAVEN_SETTINGS -f '$POM_PATH' clean package"
 				}
 				sh "mvn test"
             }
